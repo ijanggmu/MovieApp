@@ -1,0 +1,26 @@
+version: '3.4'
+
+services:
+  movieapp:
+    build:
+      context: .
+      dockerfile: MovieApp/Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionStrings__DefaultConnection: "Host=db;Port=5432;Database=movie;Username=postgres;Password=Admin@123"
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: movie
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Admin@123
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
