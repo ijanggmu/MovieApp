@@ -1,0 +1,49 @@
+﻿@using MovieApp.Dtos.Movie;
+@model MovieListRequestModel
+
+@{
+    ViewData["Title"] = "Add Movie";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card border-0 shadow>
+                <div class="card-body">
+                    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+                    @using (Html.BeginForm("Create", "Movie", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <div class="mb-3">
+                            <label asp-for="Title" class="form-label">Movie Title</label>
+                            <input asp-for="Title" class="form-control" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Description</label>
+                            <textarea asp-for="Description" class="form-control" rows="5"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="MovieYear" class="form-label">Movie Year</label>
+                            <input asp-for="MovieYear" class="form-control" />
+                            <span asp-validation-for="MovieYear" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Banner" class="form-label">Image</label>
+                            <input asp-for="Banner" class="form-control-file" type="file" accept="image/*" />
+                            <span asp-validation-for="Banner" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid mt-4">
+                            <button type="submit" class="btn btn-primary">Add Movie</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+﻿@using MovieApp.Dtos.Movie;
+@model MovieDetailResponseModel
+
+@{
+    ViewData["Title"] = "Movie Details - " + Model.Title;
+}
+
+<style>
+    /* Movie Details View Styles */
+
+    .container {
+        padding: 20px;
+    }
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .card-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+</style>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div>
+                <h1>Overview</h1>
+            </div>
+            <p class="description">Discover the captivating story of "@Model.Title." Immerse yourself in this thrilling cinematic experience, filled with breathtaking scenes and unforgettable performances. Experience the magic of cinema as you embark on a journey through an enthralling plot that will leave you on the edge of your seat. Unravel the mysteries and emotions that await in this extraordinary film.</p>
+            <div class="card border-0 shadow">
+                <img src="@Model.FullBannerUrl" alt="@Model.Title" class="card-img-top">
+                <div class="card-body">
+                    <h2 class="card-title">Title: @Model.Title</h2>
+                    <p class="card-text">Year: @Model.MovieYear</p>
+                    <h5>Descriptions:</h5>
+                    <p class="card-text">@Model.Description</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
